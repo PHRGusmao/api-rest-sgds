@@ -9,7 +9,7 @@ Desenvolvimento de API para TCC 2023 do software SGDS.
   - [ ! ] Corrigir arquitetura de sistema e nomeclaturas.
 - [ x ] API tratar requisições de softwares terceiros.
 - [ - ] Desenvolver suporte de segurança com *spring-security*.
-- [ - ] Colocar aplicação em um sevidor.
+- [ - ] Colocar aplicação em um servidor.
 
 
 ## Alterações feitas
