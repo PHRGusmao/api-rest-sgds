@@ -15,8 +15,8 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true)
     private Long id;
-    
-    @Column(nullable = false, length = 60)
+
+    @Column(nullable = false, length = 70)
     private String nome;
 
     @Column(nullable = false, unique = true)
@@ -73,7 +73,7 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
+
     public String getTelefone() {
         return telefone;
     }
@@ -89,6 +89,4 @@ public class Usuario {
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
-
-    
 }
