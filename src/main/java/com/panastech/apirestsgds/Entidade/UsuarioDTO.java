@@ -7,6 +7,7 @@ public class UsuarioDTO {
     private String email;
     private String telefone;
     private String cargo;
+
     
     public Long getId() {
         return id;
