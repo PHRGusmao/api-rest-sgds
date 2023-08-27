@@ -1,5 +1,6 @@
 package com.panastech.apirestsgds.db.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.panastech.apirestsgds.Entidade.Usuario;
+import com.panastech.apirestsgds.Entidade.UsuarioDTO;
 import com.panastech.apirestsgds.db.RepositorioUsuario;
 
 @RestController
@@ -49,42 +51,90 @@ public class UsuarioRest {
     }
 
     @GetMapping("/buscarusernome/{nome}")
-    public ResponseEntity<List<Usuario>> getUsuarioByNome(@PathVariable String nome) {
-        List<Usuario> usuario = repositorioUsuario.findByNomeContaining(nome);
-        if (usuario.isEmpty()) {
+    public ResponseEntity<List<UsuarioDTO>> getUsuarioByNome(@PathVariable String nome) {
+        List<Usuario> usuarios = repositorioUsuario.findByNomeContaining(nome);
+        List<UsuarioDTO> usuariosDTO = new ArrayList<>();
+        for (Usuario usuario : usuarios) {
+            UsuarioDTO usuarioDTO = new UsuarioDTO();
+            usuarioDTO.setId(usuario.getId());
+            usuarioDTO.setNome(usuario.getNome());
+            usuarioDTO.setCpf(usuario.getCpf());
+            usuarioDTO.setEmail(usuario.getEmail());
+            usuarioDTO.setTelefone(usuario.getTelefone());
+            usuarioDTO.setCargo(usuario.getCargo());
+            usuariosDTO.add(usuarioDTO);
+        }
+
+        if (usuariosDTO.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(usuario);
+            return ResponseEntity.ok(usuariosDTO);
         }
     }
 
     @GetMapping("/buscaruseremail/{email}")
-    public ResponseEntity<List<Usuario>> getUsuarioByEmail(@PathVariable String email) {
-        List<Usuario> usuario = repositorioUsuario.findByEmailContaining(email);
-        if (usuario.isEmpty()) {
+    public ResponseEntity<List<UsuarioDTO>> getUsuarioByEmail(@PathVariable String email) {
+        List<Usuario> usuarios = repositorioUsuario.findByEmailContaining(email);
+        List<UsuarioDTO> usuariosDTO = new ArrayList<>();
+        for (Usuario usuario : usuarios) {
+            UsuarioDTO usuarioDTO = new UsuarioDTO();
+            usuarioDTO.setId(usuario.getId());
+            usuarioDTO.setNome(usuario.getNome());
+            usuarioDTO.setCpf(usuario.getCpf());
+            usuarioDTO.setEmail(usuario.getEmail());
+            usuarioDTO.setTelefone(usuario.getTelefone());
+            usuarioDTO.setCargo(usuario.getCargo());
+            usuariosDTO.add(usuarioDTO);
+        }
+
+        if (usuariosDTO.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(usuario);
+            return ResponseEntity.ok(usuariosDTO);
         }
     }
 
     @GetMapping("/buscarusertelefone/{telefone}")
-    public ResponseEntity<List<Usuario>> getUsuarioByTelefone(@PathVariable String telefone) {
-        List<Usuario> usuario = repositorioUsuario.findByTelefoneContaining(telefone);
-        if (usuario.isEmpty()) {
+    public ResponseEntity<List<UsuarioDTO>> getUsuarioByTelefone(@PathVariable String telefone) {
+        List<Usuario> usuarios = repositorioUsuario.findByTelefoneContaining(telefone);
+        List<UsuarioDTO> usuariosDTO = new ArrayList<>();
+        for (Usuario usuario : usuarios) {
+            UsuarioDTO usuarioDTO = new UsuarioDTO();
+            usuarioDTO.setId(usuario.getId());
+            usuarioDTO.setNome(usuario.getNome());
+            usuarioDTO.setCpf(usuario.getCpf());
+            usuarioDTO.setEmail(usuario.getEmail());
+            usuarioDTO.setTelefone(usuario.getTelefone());
+            usuarioDTO.setCargo(usuario.getCargo());
+            usuariosDTO.add(usuarioDTO);
+        }
+
+        if (usuariosDTO.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(usuario);
+            return ResponseEntity.ok(usuariosDTO);
         }
     }
 
     @GetMapping("/buscarusercargo/{cargo}")
-    public ResponseEntity<List<Usuario>> getUsuarioByCargo(@PathVariable String cargo) {
-        List<Usuario> usuario = repositorioUsuario.findByCargoContaining(cargo);
-        if (usuario.isEmpty()) {
+    public ResponseEntity<List<UsuarioDTO>> getUsuarioByCargo(@PathVariable String cargo) {
+        List<Usuario> usuarios = repositorioUsuario.findByCargoContaining(cargo);
+        List<UsuarioDTO> usuariosDTO = new ArrayList<>();
+        for (Usuario usuario : usuarios) {
+            UsuarioDTO usuarioDTO = new UsuarioDTO();
+            usuarioDTO.setId(usuario.getId());
+            usuarioDTO.setNome(usuario.getNome());
+            usuarioDTO.setCpf(usuario.getCpf());
+            usuarioDTO.setEmail(usuario.getEmail());
+            usuarioDTO.setTelefone(usuario.getTelefone());
+            usuarioDTO.setCargo(usuario.getCargo());
+            usuariosDTO.add(usuarioDTO);
+        }
+
+        if (usuariosDTO.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(usuario);
+            return ResponseEntity.ok(usuariosDTO);
         }
     }
 
