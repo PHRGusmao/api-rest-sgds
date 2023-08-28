@@ -8,8 +8,10 @@ Desenvolvimento de API para TCC 2023 do software SGDS.
 - [ x ] Definição de rotas mais elaboradas.
   - [ ! ] Corrigir arquitetura de sistema e nomeclaturas.
 - [ x ] API tratar requisições de softwares terceiros.
+
+# Etapas de desenvolvimento até (15/10/2023)
 - [ - ] Desenvolver suporte de segurança com *spring-security*.
-- [ - ] Colocar aplicação em um servidor.
+- [ - ] Colocar a aplicação em um servidor.
 
 
 ## Alterações feitas
