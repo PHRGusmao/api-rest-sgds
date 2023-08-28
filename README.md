@@ -1,18 +1,20 @@
-# TCC PanasTech - 2023 - api-rest-sgds
+# TCC PanasTech - 2023 - api-rest-sgds 🧬🩺
 Desenvolvimento de API para TCC 2023 do software SGDS.
 
-# Etapas de desenvolvimento até (01/09/2023)
+# Etapas de desenvolvimento até (01/09/2023) ⚙⏳
 - [ x ] Start na produção do projeto para o backend do sitema SGDS(Sistema de Gestão de Saúde) *croos-plataforma*.
 - [ x ] API conectar com banco de dados. 
 - [ x ] API tratar requisições pelo protocolo HTTP.
 - [ x ] Definição de rotas mais elaboradas.
   - [ ! ] Corrigir arquitetura de sistema e nomeclaturas.
 - [ x ] API tratar requisições de softwares terceiros.
+
+# Previsão de desenvolvimento até (15/10/2023) ⚙⏳
 - [ - ] Desenvolver suporte de segurança com *spring-security*.
-- [ - ] Colocar aplicação em um servidor.
+- [ - ] Colocar a aplicação em um servidor.
 
 
-## Alterações feitas
+## Alterações feitas 🛠
 
 -> *Adição do Método de Busca por Nome:*
 
