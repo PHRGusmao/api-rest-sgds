@@ -8,7 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ApiRestSgdsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ApiRestSgdsApplication.class, args);
+		Thread spring = new Thread(() ->{
+			SpringApplication.run(ApiRestSgdsApplication.class, args);
+		});
+		spring.start();
 	}
 
 }
