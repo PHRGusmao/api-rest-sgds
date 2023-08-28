@@ -1,4 +1,4 @@
-# TCC PanasTech - 2023 - api-rest-sgds 🧬🩺
+# TCC PanasTech - 2023 - api-rest-sgds 🧬🩺 ![Texto Alternativo da Imagem](src\main\resources\img\PanasTech logomarca.png)
 Desenvolvimento de uma API para o TCC de 2023 do grupo `PanasTech` : `SGDS Sistema de Gestão de Saúde`.
 - Uma API (Interface de Programação de Aplicativos) serve para permitir que diferentes softwares se comuniquem e compartilhem dados e funcionalidades, facilitando a integração, automação e acesso a serviços externos em aplicativos.
 - Motivação do desenvolvimento: integração com sistemas de terceiros, como provedores de serviços médicos, laboratórios, seguradoras de saúde ou aplicativos de monitoramento de saúde. Usar uma API permitiria ao software acessar informações atualizadas e precisas de fontes confiáveis, como resultados de exames médicos, históricos de saúde e dados de tratamentos, sem a necessidade de desenvolver essas funcionalidades internamente. Isso economizaria tempo e recursos, ao mesmo tempo em que garantiria que os dados de saúde sejam manuseados de maneira segura e em conformidade com regulamentações.
