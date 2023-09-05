@@ -31,7 +31,7 @@ public class UsuarioRest {
         return repositorioUsuario.findAll();
     }
 
-    @GetMapping("/buscaruserid/{id}")
+    @GetMapping("/id:{id}")
     public ResponseEntity<Usuario> getUsuarioById(@PathVariable Long id) {
         Optional<Usuario> usuario = repositorioUsuario.findById(id);
         if (usuario.isPresent()) {
@@ -41,7 +41,7 @@ public class UsuarioRest {
         }
     }
 
-    @GetMapping("/buscarusercpf/{cpf}")
+    @GetMapping("/cpf:{cpf}")
     public ResponseEntity<Usuario> getUsuarioByCpf(@PathVariable String cpf) {
         Optional<Usuario> usuario = repositorioUsuario.findByCpf(cpf);
         if (usuario.isPresent()) {
@@ -51,7 +51,7 @@ public class UsuarioRest {
         }
     }
 
-    @GetMapping("/buscarusernome/{nome}")
+    @GetMapping("/nome:{nome}")
     public ResponseEntity<List<UsuarioDTO>> getUsuarioByNome(@PathVariable String nome) {
         List<Usuario> usuarios = repositorioUsuario.findByNomeContaining(nome);
         List<UsuarioDTO> usuariosDTO = new ArrayList<>();
@@ -73,7 +73,7 @@ public class UsuarioRest {
         }
     }
 
-    @GetMapping("/buscaruseremail/{email}")
+    @GetMapping("/email:{email}")
     public ResponseEntity<List<UsuarioDTO>> getUsuarioByEmail(@PathVariable String email) {
         List<Usuario> usuarios = repositorioUsuario.findByEmailContaining(email);
         List<UsuarioDTO> usuariosDTO = new ArrayList<>();
@@ -95,7 +95,7 @@ public class UsuarioRest {
         }
     }
 
-    @GetMapping("/buscarusertelefone/{telefone}")
+    @GetMapping("/telefone:{telefone}")
     public ResponseEntity<List<UsuarioDTO>> getUsuarioByTelefone(@PathVariable String telefone) {
         List<Usuario> usuarios = repositorioUsuario.findByTelefoneContaining(telefone);
         List<UsuarioDTO> usuariosDTO = new ArrayList<>();
@@ -117,7 +117,7 @@ public class UsuarioRest {
         }
     }
 
-    @GetMapping("/buscarusercargo/{cargo}")
+    @GetMapping("/cargo:{cargo}")
     public ResponseEntity<List<UsuarioDTO>> getUsuarioByCargo(@PathVariable String cargo) {
         List<Usuario> usuarios = repositorioUsuario.findByCargoContaining(cargo);
         List<UsuarioDTO> usuariosDTO = new ArrayList<>();
@@ -139,14 +139,14 @@ public class UsuarioRest {
         }
     }
 
-    @PostMapping("/adicionarUsuario")
+    @PostMapping("/adicionar")
     public void salvar(@RequestBody List<Usuario> listUsuario) {
         for (Usuario usuario : listUsuario) {
             repositorioUsuario.save(usuario);
         }
     }
 
-    @PutMapping("/alterarUsuario/{cpf}")
+    @PutMapping("/alterar/cpf:{cpf}")
     public ResponseEntity<Usuario> alterarUsuarioByCpf(@PathVariable String cpf,
             @RequestBody Usuario usuarioAtualizado) {
         Optional<Usuario> usuarioExistente = repositorioUsuario.findByCpf(cpf);
