@@ -1,4 +1,4 @@
-package com.panastech.apirestsgds.Entidade;
+package com.panastech.apirestsgds.Entidade.modelo;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

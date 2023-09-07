@@ -1,10 +1,10 @@
-package com.panastech.apirestsgds.db;
+package com.panastech.apirestsgds.db.respositorio;
 
 import java.util.Optional;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.panastech.apirestsgds.Entidade.Usuario;
+import com.panastech.apirestsgds.Entidade.modelo.Usuario;
 
 
 public interface RepositorioUsuario extends JpaRepository<Usuario, Long> {
@@ -17,4 +17,6 @@ public interface RepositorioUsuario extends JpaRepository<Usuario, Long> {
     List<Usuario> findByTelefoneContaining(String telefone);
 
     List<Usuario> findByCargoContaining(String cargo);
+
+    void deleteById(Long id);
 }
