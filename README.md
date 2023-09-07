@@ -14,7 +14,7 @@ Desenvolvimento da API para TCC 2023 do software SGDS.
 - [ x ] API tratar requisições de softwares terceiros.
 
 # Previsão de desenvolvimento até (15/10/2023) ⚙⏳
-- [ X ] Adicionar o suporte de segurança do _`*spring-security*`_.
+- [ x ] Adicionar o suporte de segurança do _`*spring-security*`_.
 - [ - ] Aprimorar e refinar a segurança com o _`*spring-security*`_.
 - [ - ] Colocar a aplicação em um servidor.
 
