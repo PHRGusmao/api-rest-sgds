@@ -157,8 +157,7 @@ public class UsuarioRest {
     }
 
     @PutMapping("/alterar/cpf:{cpf}")
-    public ResponseEntity<Usuario> alterarUsuarioByCpf(@PathVariable String cpf,
-            @RequestBody Usuario usuarioAtualizado) {
+    public ResponseEntity<Usuario> alterarUsuarioByCpf(@PathVariable String cpf, @RequestBody Usuario usuarioAtualizado) {
         Optional<Usuario> usuarioExistente = repositorioUsuario.findByCpf(cpf);
         if (usuarioExistente.isPresent()) {
             Usuario usuario = usuarioExistente.get();
