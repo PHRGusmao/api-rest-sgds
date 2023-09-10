@@ -1,6 +1,5 @@
 package com.panastech.apirestsgds.db.controllers;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -23,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.panastech.apirestsgds.Entidade.UsuarioDTO;
 import com.panastech.apirestsgds.Entidade.modelo.Usuario;
 import com.panastech.apirestsgds.db.respositorio.RepositorioUsuario;
+import com.panastech.apirestsgds.utilitarios.Criptografia;
 
 @RestController
 @RequestMapping("/usuario")
@@ -30,6 +30,8 @@ public class UsuarioRest {
     @Autowired
     private RepositorioUsuario repositorioUsuario;
     //private PasswordEncoder encoder;
+
+    private Criptografia encode;
 
     public UsuarioRest(RepositorioUsuario repositorioUsuario/*, PasswordEncoder encoder*/){
         this.repositorioUsuario = repositorioUsuario;
@@ -149,11 +151,20 @@ public class UsuarioRest {
         }
     }
 
-    @PostMapping("/adicionar")
+    @PostMapping("/adicionars")
     public void salvar(@RequestBody List<Usuario> listUsuario) {
+        encode = new Criptografia();
         for (Usuario usuario : listUsuario) {
+            usuario.setSenha(encode.cripto(usuario.getSenha()));
             repositorioUsuario.save(usuario);
         }
+    }
+
+    @PostMapping("/adicionar")
+    public void salvar(@RequestBody Usuario usuario) {
+        encode = new Criptografia();
+        usuario.setSenha(encode.cripto(usuario.getSenha()));
+        repositorioUsuario.save(usuario);
     }
 
     @PutMapping("/alterar/cpf:{cpf}")
@@ -187,16 +198,17 @@ public class UsuarioRest {
     }
 
     @GetMapping("/login")
-    public ResponseEntity<Boolean> login(@RequestParam String cpf, @RequestParam String senha){
-        
+    public ResponseEntity<String> login(@RequestParam String cpf, @RequestParam String senha){
+        encode = new Criptografia();
+        String senhaComparacao = encode.cripto(senha);
         Optional<Usuario> optionalUsuario = repositorioUsuario.findByCpf(cpf);
         if(optionalUsuario.isEmpty()){
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(false);
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("false");
         }
 
-        boolean validacao = senha.equals(optionalUsuario.get().getSenha());
+        boolean validacao = senhaComparacao.equals(optionalUsuario.get().getSenha());
 
         HttpStatus status = (validacao) ? HttpStatus.OK : HttpStatus.UNAUTHORIZED;
-        return ResponseEntity.status(status).body(validacao);
+        return ResponseEntity.status(status).body(validacao+"\n"+senhaComparacao+"\n"+senha+"\n"+optionalUsuario.get().getSenha());
     }
 }
