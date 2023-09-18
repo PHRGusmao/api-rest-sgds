@@ -1,6 +1,5 @@
 package com.panastech.apirestsgds.db.controllers;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -21,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.panastech.apirestsgds.Entidade.UsuarioDTO;
+import com.panastech.apirestsgds.Entidade.UsuarioLogin;
 import com.panastech.apirestsgds.Entidade.modelo.Usuario;
 import com.panastech.apirestsgds.db.respositorio.RepositorioUsuario;
 
@@ -29,11 +29,11 @@ import com.panastech.apirestsgds.db.respositorio.RepositorioUsuario;
 public class UsuarioRest {
     @Autowired
     private RepositorioUsuario repositorioUsuario;
-    //private PasswordEncoder encoder;
+    // private PasswordEncoder encoder;
 
-    public UsuarioRest(RepositorioUsuario repositorioUsuario/*, PasswordEncoder encoder*/){
+    public UsuarioRest(RepositorioUsuario repositorioUsuario/* , PasswordEncoder encoder */) {
         this.repositorioUsuario = repositorioUsuario;
-        //this.encoder = encoder;
+        // this.encoder = encoder;
     }
 
     @GetMapping
@@ -150,14 +150,13 @@ public class UsuarioRest {
     }
 
     @PostMapping("/adicionar")
-    public void salvar(@RequestBody List<Usuario> listUsuario) {
-        for (Usuario usuario : listUsuario) {
-            repositorioUsuario.save(usuario);
-        }
+    public void salvar(@RequestBody Usuario listUsuario) {
+        repositorioUsuario.save(listUsuario);
     }
 
     @PutMapping("/alterar/cpf:{cpf}")
-    public ResponseEntity<Usuario> alterarUsuarioByCpf(@PathVariable String cpf, @RequestBody Usuario usuarioAtualizado) {
+    public ResponseEntity<Usuario> alterarUsuarioByCpf(@PathVariable String cpf,
+            @RequestBody Usuario usuarioAtualizado) {
         Optional<Usuario> usuarioExistente = repositorioUsuario.findByCpf(cpf);
         if (usuarioExistente.isPresent()) {
             Usuario usuario = usuarioExistente.get();
@@ -187,16 +186,22 @@ public class UsuarioRest {
     }
 
     @GetMapping("/login")
-    public ResponseEntity<Boolean> login(@RequestParam String cpf, @RequestParam String senha){
-        
+    public ResponseEntity<UsuarioLogin> login(@RequestParam String cpf, @RequestParam String senha) {
+
         Optional<Usuario> optionalUsuario = repositorioUsuario.findByCpf(cpf);
-        if(optionalUsuario.isEmpty()){
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(false);
+        UsuarioLogin usuarioLogin = new UsuarioLogin();
+        if (optionalUsuario.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+        } else {
+            boolean validacao = senha.equals(optionalUsuario.get().getSenha());
+            HttpStatus status = (validacao) ? HttpStatus.OK : HttpStatus.UNAUTHORIZED;
+
+            usuarioLogin.setCargo(optionalUsuario.get().getCargo());
+            usuarioLogin.setCpf(optionalUsuario.get().getCpf());
+            usuarioLogin.setLogin(validacao);
+
+            return ResponseEntity.status(status).body(usuarioLogin);
         }
 
-        boolean validacao = senha.equals(optionalUsuario.get().getSenha());
-
-        HttpStatus status = (validacao) ? HttpStatus.OK : HttpStatus.UNAUTHORIZED;
-        return ResponseEntity.status(status).body(validacao);
     }
 }
