@@ -1,1 +1,2 @@
-web: java -cp target\classes\com\panastech\apirestsgds\ApiRestSgdsApplication.class ApiRestSgdsApplication
+web: java -jar target/api-rest-sgds-1.1.0-SNAPSHOT.jar
+
