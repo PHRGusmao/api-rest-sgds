@@ -64,6 +64,15 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.11.0</version> <!-- Verifique a versão adequada -->
+				<configuration>
+					<source>17.0.8</source> <!-- Versão do Java que você está usando -->
+					<target>17</target> <!-- Versão do bytecode que você quer gerar -->
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
