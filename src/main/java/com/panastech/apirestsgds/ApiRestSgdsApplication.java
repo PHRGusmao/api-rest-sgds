@@ -7,21 +7,21 @@ import org.springframework.context.annotation.Bean;
 // import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 // import org.springframework.security.crypto.password.PasswordEncoder;
 
-
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.panastech.apirestsgds.db.controllers.WebController")
 public class ApiRestSgdsApplication {
 
 	public static void main(String[] args) {
-		Thread spring = new Thread(() ->{
+		Thread spring = new Thread(() -> {
 			SpringApplication.run(ApiRestSgdsApplication.class, args);
 		});
 		spring.start();
+
 	}
 
 	// @Bean
 	// public PasswordEncoder getPasswordEncoder(){
-	// 	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-	// 	return encoder;
+	// BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+	// return encoder;
 	// }
 
 }
