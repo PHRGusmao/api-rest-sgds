@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 // import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 // import org.springframework.security.crypto.password.PasswordEncoder;
 
-@SpringBootApplication(scanBasePackages = "com.panastech.apirestsgds.db.controllers")
+@SpringBootApplication(scanBasePackages = "com.panastech.apirestsgds.db.controllers.WebController")
 public class ApiRestSgdsApplication {
 
 	public static void main(String[] args) {
