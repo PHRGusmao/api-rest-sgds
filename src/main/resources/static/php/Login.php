@@ -1,3 +1,3 @@
 <?php
-    require("Config.php");
+    require"Config.php";
 ?>

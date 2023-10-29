@@ -3,7 +3,7 @@ if (isset($_POST['submit']))
 
 {
 
-include_once("Config.php");
+include_once"Config.php";
 
     $nome = $_POST['nome'];
     $dataConsulta = $_POST['dataConsulta'];

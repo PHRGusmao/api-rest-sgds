@@ -1,7 +1,7 @@
 <?php
-    include_once("Config.php");
+    include_once"Config.php";
     session_start();
-    if((!isset($_SESSION['email'])==true)and(!isset($_SESSION['senha'])==true))
+    if((!isset($_SESSION['email']))&&(!isset($_SESSION['senha'])))
     {
         unset ($_SESSION['email']);
         unset ($_SESSION['senha']);
@@ -37,13 +37,13 @@ $con = $conexao->query($consulta) or die ($conexao->error);
 <header>
     <div class="container">
         <nav class="navbar">
-            <a href="../root/index.html">
+            <a href= "../root/index.html">
                 <img src="../img/logo.png" alt="SGDS"class="navbar-logo">
             </a>
             <div class="profile-dropdown">
                 <div class="profile-dropdown-btn"onclick="toggle()">
                     <div class="profile-img">
-                        <img src="../img/user.jpg">
+                        <img src="../img/user.jpg" alt="user">
                     </div>
                     <span class="perfilSpan"><?php echo $NOME; ?>
                         <i class="fa-solid fa-angle-down"></i>
