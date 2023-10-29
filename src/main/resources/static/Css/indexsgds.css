@@ -158,10 +158,7 @@ nav ul li a{
     left: 45%; */
     text-align: justify;
 } 
-body {
-    background-image: url("paper.gif");
-    background-color: #cccccc;
-}
+
 .sobre-sgds .container{
     display: flex;
     text-align: center;
