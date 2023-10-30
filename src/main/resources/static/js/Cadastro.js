@@ -4,11 +4,14 @@ function enviarDados() {
     const url = 'https://panastech.com/usuarios';
 
     // Dados que você quer enviar (no formato JSON)
-    const dados = {};
-    form.querySelectorAll('.form-input').forEach(input => {
-        dados[input.name] = input.value;
-    });
-
+    const dados = {
+        nome: form.querySelector('[placeholder="Nome Completo"]').value,
+        cpf: form.querySelector('[placeholder="CPF (sem traços ou pontos)"]').value,
+        email: form.querySelector('[placeholder="Email"]').value,
+        senha: form.querySelector('[placeholder="Senha"]').value,
+        telefone: form.querySelector('[placeholder="Numero de Telefone"]').value,
+        cargo: form.querySelector('[placeholder="Cargo"]').value
+    };
     // Configuração da requisição
     const options = {
         method: 'POST',
