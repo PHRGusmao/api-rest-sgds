@@ -1,18 +1,17 @@
 function enviarDados() {
-    const form = document.querySelector('.form-cadastro');
-    // URL do endpoint onde você deseja enviar os dados
+    const form = document.getElementById('form-cadastro');
+
+    const dados = {
+        "nome": form.querySelector('input[name="nomeCompleto"]').value,
+        "cpf": form.querySelector('input[name="cpf"]').value,
+        "email": form.querySelector('input[name="email"]').value,
+        "senha": form.querySelector('input[name="senha"]').value,
+        "telefone": form.querySelector('input[name="telefone"]').value,
+        "cargo": form.querySelector('input[name="cargo"]').value
+    };
+
     const url = 'https://panastech.com/usuarios';
 
-    // Dados que você quer enviar (no formato JSON)
-    const dados = {
-        nome: form.querySelector('[placeholder="Nome Completo"]').value,
-        cpf: form.querySelector('[placeholder="CPF (sem traços ou pontos)"]').value,
-        email: form.querySelector('[placeholder="Email"]').value,
-        senha: form.querySelector('[placeholder="Senha"]').value,
-        telefone: form.querySelector('[placeholder="Numero de Telefone"]').value,
-        cargo: form.querySelector('[placeholder="Cargo"]').value
-    };
-    // Configuração da requisição
     const options = {
         method: 'POST',
         headers: {
@@ -21,7 +20,6 @@ function enviarDados() {
         body: JSON.stringify(dados)
     };
 
-    // Faz a requisição usando o fetch
     fetch(url, options)
         .then(response => response.json())
         .then(data => {

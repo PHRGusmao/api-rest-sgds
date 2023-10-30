@@ -34,22 +34,23 @@
 
                 <form id="form-cadastro" class="form form-cadastro">
                     <h2 class="form-title">Criar conta</h2>
-
-                    <input type="text" class="form-input " placeholder="Nome Completo" maxlength="100" minlength="2" >
-                    <input type="text" class="form-input " placeholder="CPF (sem traços ou pontos)"  maxlength="11" minlength="2">
-                    <!-- <input type="email" class="form-input" placeholder="RG (sem traços ou pontos)"> -->
-                    <input type="email" class="form-input " placeholder="Email" >
-                    <input type="cargo" class="form-input " placeholder="Cargo" >
-                    <!-- <input type="date" class="form-input" >
-                    <input type="number" class="form-input" placeholder="Numero de Telefone"> -->
-                    <input type="password" class="form-input " placeholder="Senha" >
-                    <input type="password" class="form-input " placeholder="Repita sua Senha" >
+                
+                    <input type="text" class="form-input" placeholder="Nome Completo" maxlength="100" minlength="2" name="nomeCompleto">
+                    <input type="text" class="form-input" placeholder="CPF (sem traços ou pontos)" maxlength="11" minlength="2" name="cpf">
+                    <input type="email" class="form-input" placeholder="Email" name="email">
+                    <select class="form-input" name="cargo">
+                        <option value="Paciente">Paciente</option>
+                        <option value="Médico">Médico</option>
+                        <!-- Adicione outras opções conforme necessário -->
+                    </select>
+                    <input type="password" class="form-input" placeholder="Senha" name="senha">
+                    <input type="password" class="form-input" placeholder="Repita sua Senha" name="confirmacaoSenha">
                     <button type="button" class="form-button" onclick="enviarDados()">Cadastrar</button>
                     <p class="mobile-text">já tem conta? 
                         <a href="#" id="open-login-mobile">Login</a>
                     </p>
-
                 </form>
+                
             </div>
             <div class="overlay-container">
                 <div class="overlay">
