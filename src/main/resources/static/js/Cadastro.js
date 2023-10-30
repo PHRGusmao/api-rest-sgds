@@ -2,7 +2,7 @@ function enviarDados() {
     console.log("Script carregado")
     const form = document.getElementById('form-cadastro');
 
-    const nome = form.querySelector('input[name="nomeCompleto"]').value;
+    const nome = form.querySelector('input[name="nome"]').value;
     const cpf = form.querySelector('input[name="cpf"]').value;
     const email = form.querySelector('input[name="email"]').value;
     const senha = form.querySelector('input[name="senha"]').value;
