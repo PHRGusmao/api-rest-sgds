@@ -12,7 +12,7 @@ function enviarDados() {
     console.log('Valor da senha:', senha);
     const telefone = form.querySelector('input[name="telefone"]').value;
     console.log('Valor do telefone:', telefone);
-    const cargo = form.querySelector('input[name="cargo"]').value;
+    const cargo = form.querySelector('select[name="cargo"]').value;
     console.log('Valor do cargo:', cargo);
 
     const dados = {
