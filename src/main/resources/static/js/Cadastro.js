@@ -1,4 +1,5 @@
 function enviarDados() {
+    console.log("Script carregado")
     const form = document.getElementById('form-cadastro');
 
     const dados = {
