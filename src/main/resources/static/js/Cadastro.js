@@ -1,16 +1,13 @@
 function enviarDados() {
+    const form = document.querySelector('.form-cadastro');
     // URL do endpoint onde você deseja enviar os dados
-    const url = 'https://panastech.com/usuario/adicionar';
+    const url = 'https://panastech.com/usuarios';
 
     // Dados que você quer enviar (no formato JSON)
-    const dados = {
-        nome: 'value1',
-        cpf: 'value2',
-        email: '',
-        senha: '',
-        telefone: '',
-        cargo: '',
-    };
+    const dados = {};
+    form.querySelectorAll('.form-input').forEach(input => {
+        dados[input.name] = input.value;
+    });
 
     // Configuração da requisição
     const options = {
