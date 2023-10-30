@@ -31,9 +31,11 @@ function enviarDados() {
     fetch(url, options)
         .then(response => response.json())
         .then(data => {
+            alert('Cadastro efetuado com sucesso!');
             console.log('Resposta do servidor:', data);
         })
         .catch(error => {
+            alert('Erro:', error);
             console.error('Erro:', error);
         });
 }

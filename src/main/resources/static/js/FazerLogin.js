@@ -10,7 +10,7 @@ function fazerLogin() {
 
             if (senhaDoUsuario && senhaDoUsuario === senha) {
                 alert('Login bem-sucedido!');
-                window.location.href = '../pages/Perfil.html';
+                window.location.href = 'Perfil.html';
             } else {
                 alert('Senha incorreta');
             }
